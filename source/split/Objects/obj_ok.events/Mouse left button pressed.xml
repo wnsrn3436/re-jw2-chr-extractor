@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if image_index=0
+{
+image_index=1
+
+global.load=get_open_filename("chr 파일을 선택해주세요|*.chr", "")
+global.save=get_directory_alt("추출한 파일이 저장될곳", "")+"\"
+
+if global.load!="" and global.save!=""
+{
+progress+=1
+alarm[0]=20
+}
+else{game_end()}
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var files;
+
+if progress=0
+{
+
+files=file_bin_open(global.load, 0)
+
+sk_load_data("rmax", 8720, files, 4)
+
+sk_load_data("rmg", 8724, files, 4)
+sk_load_data("rmm", 8728, files, 4)
+sk_load_data("rma", 8732, files, 4)
+sk_load_data("rmd", 8736, files, 4)
+sk_load_data("rmbg", 8740, files, 4)
+sk_load_data("rmbme", 8744, files, 4)
+sk_load_data("rmbmf", 8748, files, 4)
+sk_load_data("rmbge", 8752, files, 4)
+sk_load_data("rmbgf", 8756, files, 4)
+sk_load_data("rmrep", 8760, files, 4)
+//spr
+
+sk_load_data("rme_g", 8784, files, 4); rme_g=string(real(rme_g)-1)
+sk_load_data("rme_m", 8816, files, 4); rme_m=string(real(rme_m)-1)
+sk_load_data("rme_a", 8848, files, 4); rme_a=string(real(rme_a)-1)
+sk_load_data("rme_d", 8880, files, 4); rme_d=string(real(rme_d)-1)
+sk_load_data("rme_bg", 8912, files, 4); rme_bg=string(real(rme_bg)-1)
+sk_load_data("rme_bme", 8944, files, 4); rme_bme=string(real(rme_bme)-1)
+sk_load_data("rme_bmf", 8976, files, 4); rme_bmf=string(real(rme_bmf)-1)
+sk_load_data("rme_bge", 9008, files, 4); rme_bge=string(real(rme_bge)-1)
+sk_load_data("rme_bgf", 9040, files, 4); rme_bgf=string(real(rme_bgf)-1)
+sk_load_data("rme_rep", 9072, files, 4); rme_rep=string(real(rme_rep)-1)
+rme_d=rmd
+//spr_e
+
+sk_load_data("smax", 9244, files, 4)
+
+sk_load_data("sms", 9252, files, 4)
+sk_load_data("smm", 9256, files, 4)
+sk_load_data("sma", 9260, files, 4)
+sk_load_data("sml", 9264, files, 4)
+sk_load_data("smd", 9268, files, 4)
+sk_load_data("smb", 9272, files, 4)
+sk_load_data("smw", 9276, files, 4)
+sk_load_data("smr", 9280, files, 4)
+sk_load_data("smx", 9284, files, 4)
+//sound
+
+file_bin_close(files)
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">정보가져오기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var files, files2, named;
+
+if progress=1
+{
+
+files=file_bin_open(global.load, 0)
+named=filename_name(filename_change_ext(global.load, ""))
+
+files2=file_bin_open(global.save+named+".cei", 1)
+file_bin_seek(files, 0)
+repeat(9404){file_bin_write_byte(files2, file_bin_read_byte(files))}
+file_bin_close(files2)
+//cei
+
+directory_create(global.save+"spr")
+directory_create(global.save+"sound")
+
+files2=file_bin_open(global.save+"\spr\"+"j00_m0.pnt", 1)
+file_bin_seek(files, 9404)
+repeat(1024){file_bin_write_byte(files2, file_bin_read_byte(files))}
+file_bin_close(files2)
+//pnt
+
+file_bin_close(files)
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">추출(1)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var files, files2, olo, olo_e, ololol, ololol2, ololol3, names;
+olo=""
+olo_e=""
+ololol=""
+ololol3=""
+names=""
+
+if progress=2
+{
+
+files=file_bin_open(global.load, 0)
+
+while(real(rmax)&gt;0)
+{
+goto=""; olo=""; olo_e=""; ololol2=0; names=""
+sk_load_data("goto", susk+24, files, 4); goto=string(real(goto)+32)
+olo_e=sk_spr_name2()
+olo=sk_spr_name()
+
+ololol=variable_local_get(olo_e)
+while(string_length(ololol)!=3){ololol="0"+ololol}
+
+while(1){if file_exists(global.save+"\spr\"+olo+string(ololol2)+ololol+".spz"){ololol2+=1}else{break}}
+
+for(i=0; i!=-1; i+=1)
+{
+ololol3=string(i)
+while(string_length(ololol3)!=3){ololol3="0"+ololol3}
+if !file_exists(global.save+"\spr\"+olo+string(ololol2)+ololol3+".spz"){names=olo+string(ololol2)+ololol3; break}
+}
+
+files2=file_bin_open(global.save+"\spr\"+names+".spz", 0)
+file_bin_seek(files, susk)
+repeat(real(goto)){file_bin_write_byte(files2, file_bin_read_byte(files))}
+file_bin_close(files2)
+
+susk+=real(goto)
+}
+
+file_bin_close(files)
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">추출(2)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var files, files2, olo, ololol, names;
+olo=""
+names=""
+
+if progress=3
+{
+
+files=file_bin_open(global.load, 0)
+
+while(real(smax)&gt;0)
+{
+goto=""; olo=""; names=""
+sk_load_data("goto", susk+4, files, 4); goto=string(real(goto)+8)
+olo=sk_sou_name()
+
+for(i=0; i!=-1; i+=1)
+{
+ololol=string(i)
+while(string_length(ololol)!=2){ololol="0"+ololol}
+if !file_exists(global.save+"\sound\"+olo+ololol+".wav"){names=olo+ololol; break}
+}
+
+files2=file_bin_open(global.save+"\sound\"+names+".wav", 0)
+file_bin_seek(files, susk)
+repeat(real(goto)){file_bin_write_byte(files2, file_bin_read_byte(files))}
+file_bin_close(files2)
+
+susk+=real(goto)
+}
+
+file_bin_close(files)
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">추출(3)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">progress+=1
+
+alarm[0]=20
+
+if progress=5{show_message("추출완료!　　　"); game_restart()}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>
