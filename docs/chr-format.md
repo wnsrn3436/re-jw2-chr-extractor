@@ -1,6 +1,6 @@
 # CHR file format
 
-Offset analysis of Jurassic Primitive War 2's CHR file.
+Offset analysis of the CHR file in Jurassic Primitive War 2.
 
 ## Image counts (4 bytes)
 
